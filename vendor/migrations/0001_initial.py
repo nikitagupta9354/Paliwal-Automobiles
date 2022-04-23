@@ -49,7 +49,7 @@ class Migration(migrations.Migration):
                 ('city', models.CharField(max_length=30)),
                 ('address', models.CharField(max_length=50)),
                 ('pin', models.CharField(max_length=10)),
-                ('checkout_user', models.ForeignKey(default=None, on_delete='CASCADE', to=settings.AUTH_USER_MODEL)),
+                ('checkout_user', models.ForeignKey(default=None, on_delete=models.CASCADE, to=settings.AUTH_USER_MODEL)),
             ],
         ),
         migrations.CreateModel(
@@ -58,7 +58,7 @@ class Migration(migrations.Migration):
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('ordernumber', models.IntegerField()),
                 ('count', models.IntegerField(default=1)),
-                ('order_address', models.ForeignKey(default=None, on_delete='CASCADE', to='vendor.Checkout')),
+                ('order_address', models.ForeignKey(default=None, on_delete=models.CASCADE, to='vendor.Checkout')),
             ],
         ),
         migrations.CreateModel(
@@ -67,7 +67,7 @@ class Migration(migrations.Migration):
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('ordernumber', models.IntegerField()),
                 ('count', models.IntegerField(default=1)),
-                ('order_address', models.ForeignKey(default=None, on_delete='CASCADE', to='vendor.Checkout')),
+                ('order_address', models.ForeignKey(default=None, on_delete=models.CASCADE, to='vendor.Checkout')),
             ],
         ),
         migrations.CreateModel(
@@ -89,7 +89,7 @@ class Migration(migrations.Migration):
                 ('img6', models.ImageField(default=None, upload_to='images')),
                 ('date', models.DateTimeField(auto_now_add=True)),
                 ('update', models.DateTimeField(auto_now=True)),
-                ('cat', models.ForeignKey(default=None, on_delete='CASCADE', to='vendor.Category')),
+                ('cat', models.ForeignKey(default=None, on_delete=models.CASCADE, to='vendor.Category')),
             ],
         ),
         migrations.CreateModel(
@@ -98,9 +98,9 @@ class Migration(migrations.Migration):
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('ordernumber', models.IntegerField()),
                 ('count', models.IntegerField(default=1)),
-                ('order_address', models.ForeignKey(default=None, on_delete='CASCADE', to='vendor.Checkout')),
-                ('order_product', models.ForeignKey(default=None, on_delete='CASCADE', to='vendor.Product')),
-                ('order_user', models.ForeignKey(default=None, on_delete='CASCADE', to=settings.AUTH_USER_MODEL)),
+                ('order_address', models.ForeignKey(default=None, on_delete=models.CASCADE, to='vendor.Checkout')),
+                ('order_product', models.ForeignKey(default=None, on_delete=models.CASCADE, to='vendor.Product')),
+                ('order_user', models.ForeignKey(default=None, on_delete=models.CASCADE, to=settings.AUTH_USER_MODEL)),
             ],
         ),
         migrations.CreateModel(
@@ -113,51 +113,51 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='product',
             name='size',
-            field=models.ForeignKey(default=None, on_delete='CASCADE', to='vendor.Size'),
+            field=models.ForeignKey(default=None, on_delete=models.CASCADE, to='vendor.Size'),
         ),
         migrations.AddField(
             model_name='previousorder',
             name='order_product',
-            field=models.ForeignKey(default=None, on_delete='CASCADE', to='vendor.Product'),
+            field=models.ForeignKey(default=None, on_delete=models.CASCADE, to='vendor.Product'),
         ),
         migrations.AddField(
             model_name='previousorder',
             name='order_user',
-            field=models.ForeignKey(default=None, on_delete='CASCADE', to=settings.AUTH_USER_MODEL),
+            field=models.ForeignKey(default=None, on_delete=models.CASCADE, to=settings.AUTH_USER_MODEL),
         ),
         migrations.AddField(
             model_name='order',
             name='order_product',
-            field=models.ForeignKey(default=None, on_delete='CASCADE', to='vendor.Product'),
+            field=models.ForeignKey(default=None, on_delete=models.CASCADE, to='vendor.Product'),
         ),
         migrations.AddField(
             model_name='order',
             name='order_user',
-            field=models.ForeignKey(default=None, on_delete='CASCADE', to=settings.AUTH_USER_MODEL),
+            field=models.ForeignKey(default=None, on_delete=models.CASCADE, to=settings.AUTH_USER_MODEL),
         ),
         migrations.AddField(
             model_name='cart',
             name='cart_product',
-            field=models.ForeignKey(default=None, on_delete='CASCADE', to='vendor.Product'),
+            field=models.ForeignKey(default=None, on_delete=models.CASCADE, to='vendor.Product'),
         ),
         migrations.AddField(
             model_name='cart',
             name='cart_user',
-            field=models.ForeignKey(default=None, on_delete='CASCADE', to=settings.AUTH_USER_MODEL),
+            field=models.ForeignKey(default=None, on_delete=models.CASCADE, to=settings.AUTH_USER_MODEL),
         ),
         migrations.AddField(
             model_name='cancelorder',
             name='order_address',
-            field=models.ForeignKey(default=None, on_delete='CASCADE', to='vendor.Checkout'),
+            field=models.ForeignKey(default=None, on_delete=models.CASCADE, to='vendor.Checkout'),
         ),
         migrations.AddField(
             model_name='cancelorder',
             name='order_product',
-            field=models.ForeignKey(default=None, on_delete='CASCADE', to='vendor.Product'),
+            field=models.ForeignKey(default=None, on_delete=models.CASCADE, to='vendor.Product'),
         ),
         migrations.AddField(
             model_name='cancelorder',
             name='order_user',
-            field=models.ForeignKey(default=None, on_delete='CASCADE', to=settings.AUTH_USER_MODEL),
+            field=models.ForeignKey(default=None, on_delete=models.CASCADE, to=settings.AUTH_USER_MODEL),
         ),
     ]

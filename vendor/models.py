@@ -22,13 +22,13 @@ class Product(models.Model):
     id = models.CharField(max_length=30,primary_key=True)
     pid = models.CharField(max_length=30)
     brand = models.CharField(max_length=30,default=None)
-    cat = models.ForeignKey(Category,on_delete="CASCADE",default=None)
+    cat = models.ForeignKey(Category,on_delete=models.CASCADE,default=None)
     name = models.CharField(max_length=100)
     description = models.TextField()
     basicPrice = models.IntegerField()
     discount = models.IntegerField()
     price = models.IntegerField()
-    size = models.ForeignKey(Size,on_delete="CASCADE",default=None)
+    size = models.ForeignKey(Size,on_delete=models.CASCADE,default=None)
 
     img1 = models.ImageField(upload_to='images')
     img2 = models.ImageField(upload_to='images',default=None)
@@ -40,8 +40,8 @@ class Product(models.Model):
 
 class Cart(models.Model):
     cartid=models.AutoField
-    cart_user=models.ForeignKey(User,on_delete="CASCADE",default=None)
-    cart_product=models.ForeignKey(Product,on_delete="CASCADE",default=None)
+    cart_user=models.ForeignKey(User,on_delete=models.CASCADE,default=None)
+    cart_product=models.ForeignKey(Product,on_delete=models.CASCADE,default=None)
     count=models.IntegerField(default=1)
     total=models.IntegerField()
     date=models.DateTimeField(auto_now_add=True)
@@ -52,7 +52,7 @@ class Cart(models.Model):
 
 class Checkout(models.Model):
     checkid=models.CharField(max_length=30,primary_key=True,default=None)
-    checkout_user = models.ForeignKey(User, on_delete="CASCADE", default=None)
+    checkout_user = models.ForeignKey(User, on_delete=models.CASCADE, default=None)
     chname=models.CharField(max_length=30)
     mobile=models.IntegerField()
     email=models.EmailField(max_length=50)
@@ -67,30 +67,30 @@ class Checkout(models.Model):
 class Order(models.Model):
     orderid =  models.AutoField
     ordernumber = models.IntegerField()
-    order_user=models.ForeignKey(User,on_delete="CASCADE",default=None)
-    order_product=models.ForeignKey(Product,on_delete="CASCADE",default=None)
+    order_user=models.ForeignKey(User,on_delete=models.CASCADE,default=None)
+    order_product=models.ForeignKey(Product,on_delete=models.CASCADE,default=None)
     count=models.IntegerField(default=1)
-    order_address=models.ForeignKey(Checkout,on_delete="CASCADE",default=None)
+    order_address=models.ForeignKey(Checkout,on_delete=models.CASCADE,default=None)
     def __str__(self):
         return self.order_address.chname
 
 class PreviousOrder(models.Model):
     orderid =  models.AutoField
     ordernumber = models.IntegerField()
-    order_user=models.ForeignKey(User,on_delete="CASCADE",default=None)
-    order_product=models.ForeignKey(Product,on_delete="CASCADE",default=None)
+    order_user=models.ForeignKey(User,on_delete=models.CASCADE,default=None)
+    order_product=models.ForeignKey(Product,on_delete=models.CASCADE,default=None)
     count=models.IntegerField(default=1)
-    order_address=models.ForeignKey(Checkout,on_delete="CASCADE",default=None)
+    order_address=models.ForeignKey(Checkout,on_delete=models.CASCADE,default=None)
     def __str__(self):
         return self.order_address.chname
 
 class CancelOrder(models.Model):
     orderid =  models.AutoField
     ordernumber = models.IntegerField()
-    order_user=models.ForeignKey(User,on_delete="CASCADE",default=None)
-    order_product=models.ForeignKey(Product,on_delete="CASCADE",default=None)
+    order_user=models.ForeignKey(User,on_delete=models.CASCADE,default=None)
+    order_product=models.ForeignKey(Product,on_delete=models.CASCADE,default=None)
     count=models.IntegerField(default=1)
-    order_address=models.ForeignKey(Checkout,on_delete="CASCADE",default=None)
+    order_address=models.ForeignKey(Checkout,on_delete=models.CASCADE,default=None)
 
     def __str__(self):
         return self.order_address.chname
@@ -98,10 +98,11 @@ class CancelOrder(models.Model):
 class ReturnOrder(models.Model):
     orderid =  models.AutoField
     ordernumber = models.IntegerField()
-    order_user=models.ForeignKey(User,on_delete="CASCADE",default=None)
-    order_product=models.ForeignKey(Product,on_delete="CASCADE",default=None)
+    order_user=models.ForeignKey(User,on_delete=models.CASCADE,default=None)
+    order_product=models.ForeignKey(Product,on_delete=models.CASCADE,default=None)
     count=models.IntegerField(default=1)
-    order_address=models.ForeignKey(Checkout,on_delete="CASCADE",default=None)
+    order_address=models.ForeignKey(Checkout,on_delete=models.CASCADE,default=None)
+
 
     def __str__(self):
         return self.order_address.chname

@@ -1,5 +1,5 @@
 {% extends 'productdetails.html' %}
-{% load staticfiles %}
+{% load static %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -12,7 +12,7 @@
     <div class="container" style="margin-top: -18vh">
         <div class="row">
             <div class="col-lg-10 offset-1">
-                <div class="addAdress">
+                <div class="addAdressFixed">
                     <form method="post" action="#" enctype="multipart/form-data">
                         {% csrf_token %}
                         <div class="row">
@@ -22,17 +22,17 @@
                         </div>
                         <div class="row">
                             <div class="col-sm-6">
-                                <div class="inputBox">
-                                    <div class="inputText">Product Id*</div>
-                                    <input type="text" name="id" class="input" required>
+                                <div class="inputBoxFixed">
+                                    <div class="inputTextFixed">Product Id*</div>
+                                    <input type="text" name="id" class="inputFixed" required>
 
                                 </div>
                             </div>
 
                             <div class="col-sm-6">
-                                <div class="inputBox">
-                                    <div class="inputText">Product Name*</div>
-                                    <input type="text" name="name" class="input" required>
+                                <div class="inputBoxFixed">
+                                    <div class="inputTextFixed">Product Name*</div>
+                                    <input type="text" name="name" class="inputFixed" required>
                                     <span class="hint">e.g. Castrol GTX 10W-40 Conventional Motor Oil</span>
                                 </div>
                             </div>
@@ -40,9 +40,9 @@
 
                         <div class="row">
                             <div class="col-sm-12">
-                                <div class="inputBox">
-                                    <div class="inputText">Description*</div>
-                                    <input type="text" name="description" class="input" required>
+                                <div class="inputBoxFixed">
+                                    <div class="inputTextFixed">Description*</div>
+                                    <input type="text" name="description" class="inputFixed" required>
                                     <span class="hint">e.g. Detail About Product</span>
                                 </div>
                             </div>
@@ -61,9 +61,9 @@
                             </div>
 
                             <div class="col-sm-6">
-                                <div class="inputBox">
-                                    <div class="inputText">Brand*</div>
-                                    <input type="text" name="brand" class="input" required>
+                                <div class="inputBoxFixed">
+                                    <div class="inputTextFixed">Brand*</div>
+                                    <input type="text" name="brand" class="inputFixed" required>
                                 </div>
                             </div>
 
@@ -82,15 +82,15 @@
                         </div>
                         <div class="row">
                             <div class="col-sm-6">
-                                <div class="inputBox">
-                                    <div class="inputText">Base Price*</div>
-                                    <input type="text" name="basicPrice" class="input" required>
+                                <div class="inputBoxFixed">
+                                    <div class="inputTextFixed">Base Price*</div>
+                                    <input type="text" name="basicPrice" class="inputFixed" required>
                                 </div>
                             </div>
                             <div class="col-sm-6">
-                                <div class="inputBox">
-                                    <div class="inputText">Discount Rate*</div>
-                                    <input type="text" name="discount" class="input" required>
+                                <div class="inputBoxFixed">
+                                    <div class="inputTextFixed">Discount Rate*</div>
+                                    <input type="text" name="discount" class="inputFixed" required>
                                 </div>
                             </div>
                         </div>

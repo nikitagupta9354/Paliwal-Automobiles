@@ -236,6 +236,7 @@ def Shop2(request,si):
         product_list = paginator.page(paginator.num_pages)
     return render(request,"shop.html",{"Cat":cat,"Data":data,"Siz":siz,"No":noData,"posts":product_list})
 
+@login_required(login_url='/register/')
 def ProductDetails(request,num):
     data = Product.objects.get(id=num)
     dat = Product.objects.filter(pid=data.pid)
@@ -662,6 +663,7 @@ def AddAddress(request):
             check.email = request.POST.get('email')
             check.state = request.POST.get('state')
             check.city = request.POST.get('city')
+            x=request.POST.get('pin')
             check.address = request.POST.get('address')
             check.pin = request.POST.get('pin')
             check.save()
